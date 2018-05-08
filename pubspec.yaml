@@ -2,7 +2,7 @@ name: notepad
 description: Simple notepad application
 
 dependencies:
-  sqflite: 0.8.7
+  sqflite: "^0.8.7"
   path_provider: "^0.4.0"
   mockito: "^2.2.3"
   flutter:

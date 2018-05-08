@@ -32,7 +32,7 @@ class NoteDetailsWidgetState extends State<NoteDetailsWidget> {
       _manager.insertNote(new Note(title: _title, descritpion: _description))
           .then((id) => Navigator.pop(context))
           : _manager.updateNote(new Note(title: _title, descritpion: _description, id: note.id))
-          .then((id) {});
+          .then((id) => Navigator.pop(context));
     }
   }
 
@@ -65,19 +65,17 @@ class NoteDetailsWidgetState extends State<NoteDetailsWidget> {
                     new Container(
                         child: new Divider(
                           color: Colors.black,)),
-                    new Expanded(
-                      child: new TextFormField(
-                        decoration: new InputDecoration(
-                          labelText: "Description",
-                          border: InputBorder.none,
-                        ),
-                        key: new Key("description"),
-                        initialValue: note?.descritpion,
-                        validator: (val) => val.isNotEmpty ? null : "Description must not be empty",
-                        onSaved: (val) => _description = val,
-                        keyboardType: TextInputType.multiline,
-                        maxLines: 3,
+                    new TextFormField(
+                      decoration: new InputDecoration(
+                        labelText: "Description",
+                        border: InputBorder.none,
                       ),
+                      key: new Key("description"),
+                      initialValue: note?.descritpion,
+                      validator: (val) => val.isNotEmpty ? null : "Description must not be empty",
+                      onSaved: (val) => _description = val,
+                      keyboardType: TextInputType.multiline,
+                      maxLines: 5,
                     )
                   ]))
       ),
