@@ -31,6 +31,7 @@ class DbManager {
   }
 
   Future<int> insertNote(Note note) async {
+    await openDb();
     return await _database.insert(TABLE_NAME, note.toMap());
   }
 
